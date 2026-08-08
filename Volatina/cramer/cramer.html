@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CRAMER</title>
+        <link rel="stylesheet" href="../accueil/style.css">
+        <link rel="stylesheet" href="./cramer.css">
+    </head>
+
+<body>
+    <div id = "page">
+
+        <header> 
+            <h1>CRAMER</h1>
+        </header>
+
+        <main>
+            <div id="nav-placeholder"></div>
+
+            <section id="section">
+                <!--<canvas id="particules"></canvas>-->
+                <div id="saisie">
+                <form action="" id="formCramer">
+                    <div class="ligne"> <!--ligne 1-->
+                        <h2 class="forme_equation">a₁₁.x₁ + a₁₂.x₂ + a₁₃.x₃ = b₁</h2>
+                        <label for="a11"> a<sub>11</sub>: </label>
+                        <input type="number" name="a11" id="a11" required>
+
+                        <label for="a12"> a<sub>12</sub>: </label>
+                        <input type="number" name="a12" id="a12" required>
+
+                        <label for="a13"> a<sub>13</sub>: </label>
+                        <input type="number" name="a13" id="a13" required>
+
+                        <label for="b1">=</label>
+                        <label for="b1"> b<sub>1</sub>: </label>
+                        <input type="number" name="b1" id="b1" required>
+                    </div>
+
+                    <div class="ligne"> <!--ligne 2-->
+                        <h2 class="forme_equation">a₂₁.x₁ + a₂₂.x₂ + a₂₃.x₃ = b₂</h2>
+                        <label for="a21"> a<sub>21</sub>: </label>
+                        <input type="number" name="a21" id="a21" required>
+
+                        <label for="a22"> a<sub>22</sub>: </label>
+                        <input type="number" name="a22" id="a22" required>
+
+                        <label for="a23"> a<sub>23</sub>: </label>
+                        <input type="number" name="a23" id="a23" required>
+
+                        <label for="b2">=</label>
+                        <label for="b2"> b<sub>2</sub>: </label>
+                        <input type="number" name="b2" id="b2" required>
+                    </div>
+
+                    <div class="ligne"> <!--ligne 3-->
+                        <h2 class="forme_equation">a₃₁.x₁ + a₃₂.x₂ + a₃₃.x₃ = b₃</h2>
+                        <label for="a31"> a<sub>31</sub>: </label>
+                        <input type="number" name="a31" id="a31" required>
+
+                        <label for="a32"> a<sub>32</sub>: </label>
+                        <input type="number" name="a32" id="a32" required>
+
+                        <label for="a33"> a<sub>33</sub>: </label>
+                        <input type="number" name="a33" id="a33" required>
+
+                        <label for="b3">=</label>
+                        <label for="b3"> b<sub>3</sub>: </label>
+                        <input type="number" name="b3" id="b3" required>
+                    </div>
+                    <div>
+                        <button type="submit" id="resoudre">Résoudre</button>
+                        <button type="reset" id="reinitialiser">Réinitialiser</button>
+                    </div>
+                </form>
+                </div>
+
+                <div id="resultat">
+                    <h2>RESULTAT</h2>
+                    <div id="resultat-contenu">
+                        <p>Remplis le formulaire puis clique sur "Résoudre".</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <h1>Auteurs: moi etc</h1>
+        </footer>
+    </div>
+    <script src="../accueil/nav.js"></script>
+    <script src="./solver.js"></script>
+</body>
+</html>

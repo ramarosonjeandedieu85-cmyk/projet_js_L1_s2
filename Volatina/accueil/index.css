@@ -1,0 +1,35 @@
+#main {
+    min-height: 500px;
+    display: flex;
+}
+
+/* La section occupe tout le reste de la largeur et centre tout son contenu */
+#main section {
+    width: 82% !important;
+    flex: 1;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    text-align: center;
+}
+
+/* Force le h2 au centre parfait */
+.h2, #main section h2 {
+    width: 100% !important;
+    max-width: 850px;
+    margin: 0 auto !important;
+    text-align: center !important;
+    font-size: clamp(22px, 3.8vw, 45px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    
+    /* Style Néon Lumineux */
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.9), 
+                0 0 25px rgba(0, 212, 255, 0.6), 
+                0 0 40px rgba(0, 150, 255, 0.4);
+    transform: translateY(-100px);
+}

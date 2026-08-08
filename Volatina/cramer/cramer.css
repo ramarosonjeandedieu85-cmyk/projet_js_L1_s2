@@ -1,0 +1,136 @@
+nav ul { margin-top: 50px; }
+
+#section { gap: 30px; }
+
+#saisie {
+    flex: 1.2;
+    background-color: var(--couleur-verre);
+    margin: 40px 0;
+    padding: 30px;
+    border: var(--bordure_blanc);
+    border-radius: var(--radius);
+    backdrop-filter: var(--flou);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 212, 255, 0.35);
+    transform: rotateY(6deg) rotateX(2deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#resultat {
+    flex: 0.8;
+    background-color: var(--couleur-verre);
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    border: var(--bordure_blanc);
+    border-radius: var(--radius);
+    backdrop-filter: var(--flou);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 212, 255, 0.35);
+    transform: rotateY(-6deg) rotateX(2deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#resultat h2 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: #38bdf8;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+#resultat-contenu p {
+    color: #cbd5e1;
+}
+
+.forme_equation {
+    color: #38bdf8;
+    width: 100%;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+label {
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+/* Champs de Saisie : taille idéale pour éviter tout débordement */
+input {
+    background-color: rgba(0, 0, 0, 0.45);
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    width: 65px;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    padding: 6px 8px;
+    text-align: center;
+    border: var(--bordure_blanc);
+    border-radius: 10px;
+    color: #00d4ff;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.8), inset 0 0 5px rgba(0, 212, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.ligne {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+button {
+    margin: 30px 15px 10px 0;
+    border-radius: 12px;
+    padding: 12px 25px;
+    border: var(--bordure_blanc);
+    background: rgba(10, 15, 30, 0.85);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+#resoudre {
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.4);
+}
+
+#resoudre:hover {
+    background: #00d4ff;
+    color: #090d16;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+}
+
+#reinitialiser {
+    color: #ff4757;
+    border-color: rgba(255, 71, 87, 0.4);
+}
+
+#reinitialiser:hover {
+    background: #ff4757;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 71, 87, 0.8);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  #saisie, #resultat {
+    width: 100%;
+    margin: 15px 0;
+    transform: none;
+  }
+  input { width: 65px; }
+}

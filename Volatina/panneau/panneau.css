@@ -1,0 +1,154 @@
+/* --- style.css - Version 3D Coverflow --- */
+
+main{
+    width: 100% ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+
+body {
+    background-color: #000; /* Fond noir profond */
+    color: #e0f7f7;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Empêche les barres de défilement pendant l'animation */
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+}
+
+header h1 {
+    color: #2dd4d4;
+    text-shadow: 0 0 10px #2dd4d4;
+}
+
+/* --- Le Conteneur Principal (Fenêtre de vue) --- */
+.panneau-fenetre {
+    width: 100%;
+    max-width: 1600vw ; /*Empeche de depasser de l'ecran*/
+    height: 600px; /* Augmenté pour laisser de la place au zoom 3D */
+    position: relative;
+    overflow: visible; /* IMPORTANT : Laisser la 3D sortir du cadre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- La Bandeau qui défile (Le parent 3D) --- */
+.panneau-publicitaire {
+    display: flex;
+    align-items: center;
+    /* transition gérée dynamiquement par le JS pour transform */
+    transition: transform 0.5s ease-out; 
+    
+    /* Supprimer le gap CSS, on gère l'espace en JS */
+    gap: 0; 
+    
+    /* IMPORTANT : Préparer le contexte 3D */
+    transform-style: preserve-3d; 
+    position: relative;
+}
+
+/* --- Style d'une Carte --- */
+.card {
+    width: 280px; /* Légèrement plus large pour mieux voir l'effet */
+    flex-shrink: 0;
+    height: 400px; /* Moins haute pour accentuer l'effet Coverflow */
+    background-color: #050505; /* Fond presque noir */
+    
+    /* Bordure turquoise simple */
+    border: 1px solid #2dd4d4; 
+    border-radius: 15px;
+    
+    overflow: hidden;
+    position: relative;
+    
+    /* Préparer la transition des transformations gérées par JS */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out, box-shadow 0.5s ease-out;
+    
+    /* IMPORTANT : Forcer le z-index pour le JS */
+    z-index: 1; 
+    
+    /* Lueur néon turquoise de base (très légère) */
+    box-shadow: 0 0 15px rgba(45, 212, 212, 0.2);
+}
+
+/* --- Style quand la carte est au centre (active) --- */
+.card.active {
+    /* Lueur néon FORTE et large, comme sur ton image */
+    box-shadow: 0 0 30px #2dd4d4, 0 0 60px rgba(45, 212, 212, 0.6);
+    border-width: 2px; /* Bordure un peu plus épaisse au centre */
+}
+
+/* --- Contenu de la Carte --- */
+.card img {
+    width: 100%;
+    height: 50%; /* Image prend la moitié du haut */
+    object-fit: cover;
+}
+
+.card-titre,
+.card-description,
+.card-promo {
+    margin: 10px 20px;
+    color: #e0f7f7;
+    backface-visibility: hidden; /* Évite les bugs d'affichage en rotation */
+}
+
+.card-titre {
+    font-size: 1.3rem;
+    color: #2dd4d4;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: #b0d8d8;
+    line-height: 1.4;
+}
+
+.card-promo {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(45, 212, 212, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* --- Boutons de Navigation --- */
+.btn-prev, .btn-next {
+    background-color: transparent;
+    color: #2dd4d4;
+    border: 2px solid #2dd4d4;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100; /* Toujours devant */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(45, 212, 212, 0.5);
+}
+
+.btn-prev:hover, .btn-next:hover {
+    background-color: #2dd4d4;
+    color: #000;
+    box-shadow: 0 0 20px #2dd4d4;
+}
+
+.btn-prev { left: 20px; }
+.btn-next { right: 20px; }
