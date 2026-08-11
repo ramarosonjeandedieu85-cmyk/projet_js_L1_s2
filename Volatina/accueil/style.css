@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
-  --couleur-verre: rgba(15, 23, 42, 0.55);
+  --couleur-verre: rgba(15, 23, 42, 0.1);
   --radius: 18px;
-  --flou: blur(12px);
+  --flou: blur(5px);
   --bordure_blanc: 1px solid rgba(255, 255, 255, 0.25);
   --glow-bleu: 0 0 30px rgba(0, 180, 255, 0.4);
 }
@@ -47,7 +47,7 @@ h1#tete, header h1 {
   font-weight: 700;
   letter-spacing: 2px;
   background: linear-gradient(90deg, #38bdf8, #00d4ff, #ffffff);
-  -webkit-background-clip: text;
+  -webkit-background-clip: text ;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
 }

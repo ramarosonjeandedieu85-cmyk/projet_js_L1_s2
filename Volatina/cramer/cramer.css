@@ -1,6 +1,17 @@
+#body
+{
+    background-image: url('cramer_background.png');
+    background-size: cover ;
+    background-position: center ;
+    background-repeat: no-repeat ;
+    background-attachment: fixed ;
+    min-height: 100vh ;
+    margin: 0 ;
+}
+
 nav ul { margin-top: 50px; }
 
-#section { gap: 30px; }
+#section { gap: 30px; background-color: transparent ; }
 
 #saisie {
     flex: 1.2;

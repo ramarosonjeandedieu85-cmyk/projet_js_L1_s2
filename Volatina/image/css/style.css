@@ -30,18 +30,22 @@ Verdana,
 sans-serif;
 
 
-background:#f4f7fb;
-
-
 min-height:100vh;
 
 
 display:flex;
 
 flex-direction:column;
-
+   background-image: url('../image_background.jpg');
+   background-size: cover ;
+   background-position: top center ;
+   background-repeat: no-repeat ;
+   background-attachment: fixed ;
+   min-height: 100vh ;
+   margin: 0 ;
 
 }
+
 
 
 
