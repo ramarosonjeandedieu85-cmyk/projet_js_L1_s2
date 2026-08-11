@@ -9,6 +9,7 @@ function chargerNav() {
                 <ul>
                     <li><a href="../accueil/index.html">accueil</a></li>
                     <li><a href="../cramer/cramer.html">cramer</a></li>
+                    <li><a href="../panneau/panneau.html">Panneau</a></li>
                     <li><a href="../image/image.html">image</a></li>
                     <li><a href="../datatable/datatable.html">datatable</a></li>
                 </ul>
