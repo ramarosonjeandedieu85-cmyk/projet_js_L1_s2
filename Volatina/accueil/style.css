@@ -118,7 +118,7 @@ section {
 }
 
 footer {
-  height: 70px;
+  height: 100px;
   background: linear-gradient(135deg, rgba(10, 15, 30, 0.9), rgba(0, 180, 255, 0.15));
   border-top: var(--bordure_blanc);
   display: flex;
