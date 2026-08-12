@@ -133,6 +133,8 @@ header h1 {
     padding: 5px 10px;
     border-radius: 5px;
     display: inline-block;
+    width: 25% ;
+    margin-left: 100px;
 }
 
 /* --- Boutons de Navigation --- */
