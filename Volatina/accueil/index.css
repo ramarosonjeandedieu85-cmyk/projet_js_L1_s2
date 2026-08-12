@@ -23,16 +23,15 @@ body
     justify-content: center !important;
     align-items: center !important;
     flex-direction: column !important;
-    row-gap: 0.55rem;
-    padding: 0.35rem 0 !important;
+    /*row-gap: 0.55rem;*/
     text-align: center;
 }
 
 /* Force le h2 au centre parfait */
-.h2, #main section h2 {
+h2{
     width: 100% !important;
     max-width: 850px;
-    margin: 0 auto 0.35rem auto !important;
+    margin: auto !important;
     text-align: center !important;
     font-size: clamp(22px, 3.8vw, 45px);
     font-weight: 700;
@@ -46,33 +45,40 @@ body
                 0 0 40px rgba(0, 150, 255, 0.4);
 }
 
-#main section p {
+.blocp 
+{
+    display: flex;
+    flex-direction: row ;
+    gap: 20px ; 
+}
+p{
+
     width: 100%;
     max-width: 760px;
-    margin: 0 auto;
     padding: 0.75rem 0.6rem;
     border-radius: 24px;
     background: rgba(4, 18, 44, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03),
                 0 16px 40px rgba(0, 0, 0, 0.22);
-    color: #e8f4ff;
-    font-size: clamp(0.95rem, 1.05vw, 1.12rem);
+    color: #ffffff;
     line-height: 1.65;
     letter-spacing: 0.03em;
     text-align: left;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     overflow-wrap: break-word;
-}
-
-#main section p br {
-    content: '';
-    line-height: 1.8;
+    font-weight: 500 ;
+    text-shadow: 
+    0 0 5px rgba(0, 210, 255, 0.9),   /* Lueur interne intense */
+    0 0 15px rgba(0, 102, 255, 0.6),  /* Halo intermédiaire */
+    0 0 30px rgba(0, 34, 255, 0.4);
+    font-family: 'Orbitron', 'Iceland', 'Monoton', sans-serif;
 }
 
 footer {
     width: 100%;
     padding: 1rem 0 1.4rem;
+    height: auto;
 }
 
 footer h1 {
@@ -85,8 +91,8 @@ footer h1 {
     letter-spacing: 0.03em;
     color: #f8fafc;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
-    background: rgba(8, 16, 32, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(8, 16, 32, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 14px;
     padding: 1rem 1rem;
     overflow-wrap: anywhere;
