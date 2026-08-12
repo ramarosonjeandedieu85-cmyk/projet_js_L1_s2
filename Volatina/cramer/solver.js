@@ -1,3 +1,4 @@
+// Commentaire: script solver.js pour le dossier Volatina
 // solver.js
 // Résout un système de 3 équations à 3 inconnues (x1, x2, x3) par la méthode de Cramer.
 //

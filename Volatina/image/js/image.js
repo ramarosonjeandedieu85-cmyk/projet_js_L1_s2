@@ -1,10 +1,11 @@
+// Commentaire: script image.js pour le dossier Volatina
 /* =====================================================
    PROJET DHTML
    MODULE : REDIMENSIONNEMENT IMAGE
    jQuery UI Slider
 ===================================================== */
 
-
+// Page image : contrôle de la taille via sliders et application immédiate aux éléments.
 $(document).ready(function(){
 
 
@@ -30,7 +31,7 @@ $(document).ready(function(){
        SLIDER LARGEUR
     ================================= */
 
-
+    // Ajuste la largeur du cadre photo et affiche la valeur en px.
     $("#widthSlider").slider({
 
 
@@ -76,8 +77,7 @@ $(document).ready(function(){
        SLIDER HAUTEUR
     ================================= */
 
-
-
+    // Ajuste la hauteur du cadre image et met à jour l'affichage.
     $("#heightSlider").slider({
 
 
@@ -124,8 +124,7 @@ $(document).ready(function(){
        MODIFICATION CSS DYNAMIQUE
     ================================= */
 
-
-
+    // Applique la largeur et la hauteur choisies au conteneur et à la photo.
     function modifierTaille(){
 
 

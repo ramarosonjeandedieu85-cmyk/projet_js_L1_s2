@@ -1,10 +1,12 @@
+// Commentaire: script datatable.js pour le dossier Volatina
 /* =====================================================
    PROJET DHTML
    MODULE : DATATABLE + CHART.JS
 ===================================================== */
 
-
-
+// Ce script alimente la page de gestion des produits.
+// Il calcule le montant de chaque ligne, met à jour les totaux,
+// initialise la table interactive en français et affiche un graphique.
 $(document).ready(function(){
 
 
@@ -27,6 +29,8 @@ let produits = [];
 
 
 
+// Parcourt chaque ligne du tableau de produits pour lire quantité et prix.
+// Ensuite, on calcule le montant et on complète la colonne correspondante.
 $("#produits tbody tr").each(function(){
 
 
@@ -93,8 +97,7 @@ $("#produits tbody tr").each(function(){
    FOOTER TOTAL
 ================================ */
 
-
-
+// Affiche les totaux calculés dans le pied de page du tableau.
 $("#totalQte")
 .text(totalQte);
 
@@ -178,7 +181,8 @@ maximum.toLocaleString("fr-FR")
    DATATABLE FRANÇAIS
 ================================ */
 
-
+// Activation de DataTable pour rendre la liste interactive
+// avec recherche, pagination et libellés en français.
 new DataTable(
 "#produits",
 {
@@ -240,7 +244,7 @@ pageLength:5
 ================================ */
 
 
-
+// Graphique en barres montrant le prix de chaque produit.
 let canvas =
 document.getElementById(
 "chartProduit"

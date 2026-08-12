@@ -1,21 +1,25 @@
+// Commentaire: script panneau.js pour le dossier Volatina
 // panneau.js - Version 3D Coverflow
+// Ce script gère le carrousel publicitaire en mode coverflow :
+// la carte centrale est mise en avant et les cartes de chaque côté s'inclinent en 3D.
 
+// Cibles HTML : conteneur principal, cartes et boutons de navigation.
 const panneau = document.querySelector('.panneau-publicitaire');
 const cards = document.querySelectorAll('.card');
 const btnPrev = document.querySelector('.btn-prev');
 const btnNext = document.querySelector('.btn-next');
 
-// Configuration de l'effet
+// Paramètres visuels pour l'effet 3D.
 const perspectiveValue = "1000px"; // Profondeur 3D
 const rotationAngle = 45; // Angle de rotation des cartes latérales (en degrés)
 const depthOffset = -200; // Distance vers l'arrière des cartes latérales (px)
 const scaleReduced = 0.8; // Taille réduite des cartes latérales (0.8 = 80%)
 const spaceBetween = 60; // Espace horizontal supplémentaire entre les cartes (px)
 
-// État du carrousel
+// État du carrousel.
 let currentIndex = 0; // Index de la carte centrale (on commence à 0)
 
-// --- Fonction Principale de Mise à Jour (L'Effet Coverflow) ---
+// --- Fonction Principale de Mise à Jour (place la carte centrale et transforme les autres) ---
 function updateCoverflow() {
     // 1. Calculer le déplacement pour centrer la carte 'currentIndex'
     const cardWidth = cards[0].offsetWidth;
@@ -30,30 +34,32 @@ function updateCoverflow() {
         const distanceFromCenter = index - currentIndex;
         
         if (distanceFromCenter === 0) {
-            // --- Carte Centrale ---
+            // --- Carte centrale sélectionnée ---
+            // Elle reste droite, pleine taille, et devant les autres.
             card.style.transform = `translateX(0px) scale(1) rotateY(0deg) translateZ(0px)`;
             card.style.opacity = 1;
             card.style.zIndex = 10; // Devant toutes les autres
             card.classList.add('active'); // Pour la lueur forte
         } 
         else {
-            // --- Cartes Latérales (Gauche et Droite) ---
+            // --- Cartes latérales : gauche / droite ---
+            // Elles s'inclinent et reculent légèrement pour créer le volume.
             const direction = distanceFromCenter > 0 ? 1 : -1; // 1 pour droite, -1 pour gauche
             
-            // Calcul du décalage horizontal pour l'espacement
+            // Décalage horizontal pour séparer les cartes.
             const tx = direction * spaceBetween;
-            // Rotation Y (perspective)
+            // Rotation pour donner un effet de perspective.
             const ry = -direction * rotationAngle;
-            // Éloignement en profondeur (Z)
+            // Recul dans l'espace pour l'effet 3D.
             const tz = depthOffset;
             
             card.style.transform = `translateX(${tx}px) scale(${scaleReduced}) rotateY(${ry}deg) translateZ(${tz}px)`;
             
-            // Effet d'estompage (plus on s'éloigne, plus c'est transparent)
+            // Faire fondre un peu la carte en fonction de sa distance au centre.
             const opacity = 1 - (Math.abs(distanceFromCenter) * 0.3);
-            card.style.opacity = Math.max(0.1, opacity); // Minimum 10% d'opacité
+            card.style.opacity = Math.max(0.1, opacity); // Au moins 10% d'opacité
             
-            // Empilement : les cartes proches du centre sont devant
+            // Les cartes proches du centre restent au-dessus visuellement.
             card.style.zIndex = 10 - Math.abs(distanceFromCenter);
             card.classList.remove('active');
         }
@@ -77,6 +83,7 @@ btnPrev.addEventListener('click', () => {
 });
 
 // --- Initialisation ---
+// Prépare le cadrage 3D et force le rendu dès que la page est prête.
 
 // Activer la perspective 3D sur le parent direct
 panneau.style.perspective = perspectiveValue;

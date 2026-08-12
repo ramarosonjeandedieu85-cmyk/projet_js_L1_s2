@@ -1,3 +1,4 @@
+// Commentaire: script nav.js pour le dossier Volatina
 // nav.js
 // But : ne définir le menu de navigation qu'à UN SEUL endroit.
 // Chaque page appelle ce script, et le nav est injecté automatiquement.
