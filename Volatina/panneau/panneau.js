@@ -18,6 +18,7 @@ const spaceBetween = 60; // Espace horizontal supplémentaire entre les cartes (
 
 // État du carrousel.
 let currentIndex = 0; // Index de la carte centrale (on commence à 0)
+let autoSlideTimer ;
 
 // --- Fonction Principale de Mise à Jour (place la carte centrale et transforme les autres) ---
 function updateCoverflow() {
@@ -66,22 +67,6 @@ function updateCoverflow() {
     });
 }
 
-// --- Écouteurs d'Événements ---
-
-btnNext.addEventListener('click', () => {
-    if (currentIndex < cards.length - 1) {
-        currentIndex++;
-        updateCoverflow();
-    }
-});
-
-btnPrev.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateCoverflow();
-    }
-});
-
 // --- Initialisation ---
 // Prépare le cadrage 3D et force le rendu dès que la page est prête.
 
@@ -89,6 +74,47 @@ btnPrev.addEventListener('click', () => {
 panneau.style.perspective = perspectiveValue;
 
 // Centrer la première carte au chargement
-window.addEventListener('load', updateCoverflow);
+/*window.addEventListener('load', updateCoverflow);*/
 // Recalculer si la fenêtre est redimensionnée
 window.addEventListener('resize', updateCoverflow);
+
+function startAutoSlide(){
+    clearInterval(autoSlideTimer) ;
+    autoSlideTimer = setInterval(() => {
+        if(currentIndex < cards.length - 1){
+            currentIndex ++ ;
+        }
+        else{
+            currentIndex = 0 ;
+        }
+        updateCoverflow() ;
+    }, 15000) ;
+}
+
+// Démarrer le défilement automatique au chargement de la page
+window.addEventListener('load', () => {
+    updateCoverflow() ;
+    startAutoSlide();
+});
+
+// Réinitialiser le minuteur de 15s lors d'un clic sur le bouton Suivant
+btnNext.addEventListener('click', () => {
+    if (currentIndex < cards.length - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; // Retour au début
+    }
+    updateCoverflow();
+    startAutoSlide(); // Remet le compteur de 15s à zéro
+});
+
+// Réinitialiser le minuteur de 15s lors d'un clic sur le bouton Précédent
+btnPrev.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = cards.length - 1; // Retour à la fin
+    }
+    updateCoverflow();
+    startAutoSlide(); // Remet le compteur de 15s à zéro
+});
